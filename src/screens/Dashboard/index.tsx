@@ -1,6 +1,9 @@
 //React
 import React from "react";
 
+//Components
+import HighlightCard from "../../components/HighlightCard";
+
 //Styles
 import {
   Container,
@@ -25,6 +28,7 @@ export default function Dashboard() {
                 uri: "https://avatars.githubusercontent.com/u/65872394?v=4",
               }}
             />
+
             <User>
               <UserGreeting>Olá,</UserGreeting>
               <UserName>Henrique</UserName>
@@ -33,6 +37,8 @@ export default function Dashboard() {
           <Icon name="power" />
         </UserWrapper>
       </Header>
+
+      <HighlightCard />
     </Container>
   );
 }
