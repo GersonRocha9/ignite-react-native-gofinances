@@ -1,27 +1,11 @@
+//styled-components
 import "styled-components";
 
+//Global
+import theme from "../global/styles/theme";
+
 declare module "styled-components" {
-  export interface DefaultTheme {
-    title: string;
+  type ThemeType = typeof theme;
 
-    colors: {
-      primary: string;
-
-      secondary: string;
-      secondary_light: string;
-
-      success: string;
-      success_light: string;
-
-      attention: string;
-      attention_light: string;
-
-      shape: string;
-
-      title: string;
-      text: string;
-
-      background: string;
-    };
-  }
+  export interface DefaultTheme extends ThemeType {}
 }
