@@ -2,10 +2,7 @@
 import styled from "styled-components/native";
 
 //react-native-responsive-fontsize
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-
-//react-native-iphone-x-helper
-import { getStatusBarHeight } from "react-native-iphone-x-helper";
+import { RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.View`
   flex: 1;
@@ -33,8 +30,11 @@ export const Title = styled.Text`
 
 export const Form = styled.View`
   flex: 1;
+  justify-content: space-between;
 
   width: 100%;
 
   padding: 24px 24px 20px;
 `;
+
+export const Fields = styled.View``;

@@ -3,13 +3,19 @@ import React from "react";
 import { TouchableOpacityProps } from "react-native";
 
 //Styles
-import { Container } from "./styles";
+import { Container, Title } from "./styles";
 
 //Types
-type Props = TouchableOpacityProps;
+type Props = TouchableOpacityProps & {
+  title: string;
+};
 
 export default function Button(props: Props) {
-  const {} = props;
+  const { title, ...rest } = props;
 
-  return <Container></Container>;
+  return (
+    <Container activeOpacity={0.7} {...rest}>
+      <Title>{title}</Title>
+    </Container>
+  );
 }

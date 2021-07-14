@@ -3,9 +3,10 @@ import React, { useState } from "react";
 
 //Components
 import Input from "../../components/Form/Input";
+import Button from "../../components/Form/Button";
 
 //Styles
-import { Container, Header, Title, Form } from "./styles";
+import { Container, Header, Title, Form, Fields } from "./styles";
 
 export default function Register() {
   const [name, setName] = useState<string>("");
@@ -18,17 +19,21 @@ export default function Register() {
       </Header>
 
       <Form>
-        <Input
-          placeholder="Nome"
-          onChangeText={(t) => setName(t)}
-          value={name}
-        />
+        <Fields>
+          <Input
+            placeholder="Nome"
+            onChangeText={(t) => setName(t)}
+            value={name}
+          />
 
-        <Input
-          placeholder="Preço"
-          onChangeText={(t) => setAmount(t)}
-          value={amount}
-        />
+          <Input
+            placeholder="Preço"
+            onChangeText={(t) => setAmount(t)}
+            value={amount}
+          />
+        </Fields>
+
+        <Button title="Enviar" />
       </Form>
     </Container>
   );
