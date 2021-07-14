@@ -1,5 +1,6 @@
 //React
 import React from "react";
+import { StatusBar } from "react-native";
 
 //styled-components
 import { ThemeProvider } from "styled-components";
@@ -32,6 +33,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar backgroundColor="#5636d3" barStyle="light-content" />
       <Register />
     </ThemeProvider>
   );

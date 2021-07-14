@@ -10,7 +10,7 @@ type Props = TouchableOpacityProps & {
   title: string;
 };
 
-export default function CategorySelect(props: Props) {
+export default function CategorySelectButton(props: Props) {
   const { title, ...rest } = props;
 
   return (
