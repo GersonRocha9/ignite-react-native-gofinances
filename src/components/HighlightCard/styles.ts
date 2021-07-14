@@ -40,22 +40,22 @@ export const Title = styled.Text<Props>`
 export const Icon = styled(Feather)<Props>`
   font-size: ${RFValue(40)}px;
 
-  ${({ type }) =>
+  ${({ theme, type }) =>
     type === "up" &&
     css`
-      color: ${({ theme }) => theme.colors.success};
+      color: ${theme.colors.success};
     `}
 
-  ${({ type }) =>
+  ${({ theme, type }) =>
     type === "down" &&
     css`
-      color: ${({ theme }) => theme.colors.attention};
+      color: ${theme.colors.attention};
     `}
 
-  ${({ type }) =>
+  ${({ theme, type }) =>
     type === "total" &&
     css`
-      color: ${({ theme }) => theme.colors.shape};
+      color: ${theme.colors.shape};
     `}
 `;
 
