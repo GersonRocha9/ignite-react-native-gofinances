@@ -27,7 +27,6 @@ export const Container = styled(TouchableOpacity)<ContainerProps>`
 
   width: ${RFPercentage(24)}px;
 
-  margin: 8px 0;
   padding: 16px 35px;
 
   border-width: ${({ isActive }) => (isActive ? 0 : 1.5)}px;
