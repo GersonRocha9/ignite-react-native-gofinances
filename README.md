@@ -56,6 +56,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [TypeScript](https://www.typescriptlang.org)
 - [styled-components](https://styled-components.com)
+- [react-native-responsive-fontsize](https://www.npmjs.com/package/react-native-responsive-fontsize)
+- [react-native-iphone-x-helper](https://github.com/ptelad/react-native-iphone-x-helper)
 
 ---
 
