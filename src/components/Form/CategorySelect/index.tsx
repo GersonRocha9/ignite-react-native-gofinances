@@ -11,10 +11,10 @@ type Props = TouchableOpacityProps & {
 };
 
 export default function CategorySelect(props: Props) {
-  const { title } = props;
+  const { title, ...rest } = props;
 
   return (
-    <Container activeOpacity={0.7}>
+    <Container activeOpacity={0.7} {...rest}>
       <Category>{title}</Category>
       <Icon name="chevron-down" />
     </Container>

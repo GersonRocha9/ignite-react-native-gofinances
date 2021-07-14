@@ -10,14 +10,14 @@ import { RFValue } from "react-native-responsive-fontsize";
 //Icons
 import { Feather } from "@expo/vector-icons";
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
 
-  padding: 20px 16px;
+  padding: 18px 16px;
 
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 5px;

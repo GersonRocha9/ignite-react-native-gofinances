@@ -2,20 +2,14 @@
 import React, { useState } from "react";
 
 //Components
+import Header from "../../components/Header";
 import Input from "../../components/Form/Input";
 import TransactionTypeButton from "../../components/Form/TransactionTypeButton";
 import CategorySelect from "../../components/Form/CategorySelect";
 import Button from "../../components/Form/Button";
 
 //Styles
-import {
-  Container,
-  Header,
-  Title,
-  Form,
-  Fields,
-  TransactionsTypes,
-} from "./styles";
+import { Container, Form, Fields, TransactionsTypes } from "./styles";
 
 export default function Register() {
   const [name, setName] = useState<string>("");
@@ -28,9 +22,7 @@ export default function Register() {
 
   return (
     <Container>
-      <Header>
-        <Title>Cadastro</Title>
-      </Header>
+      <Header title="Cadastro" />
 
       <Form>
         <Fields>
