@@ -15,7 +15,7 @@ type Props = {
 export const Container = styled.View<Props>`
   width: ${RFValue(300)}px;
 
-  margin-right: ${({ type }) => (type === "up" || type === "down" ? 16 : 0)}px;
+  margin-right: ${({ type }) => (type === "total" ? 0 : 16)}px;
 
   padding: 19px 23px ${RFValue(42)}px 23px;
 
