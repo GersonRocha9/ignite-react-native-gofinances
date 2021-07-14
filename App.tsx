@@ -17,7 +17,7 @@ import {
 import theme from "./src/global/styles/theme";
 
 //Screens
-import CategorySelectModal from "./src/screens/CategorySelectModal";
+import Register from "./src/screens/Register";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CategorySelectModal />
+      <Register />
     </ThemeProvider>
   );
 }

@@ -9,3 +9,11 @@ export const Container = styled.View`
 
   background-color: ${({ theme }) => theme.colors.background};
 `;
+
+export const Footer = styled.View`
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+`;
