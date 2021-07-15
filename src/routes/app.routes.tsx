@@ -16,7 +16,7 @@ import Dashboard from "../screens/Dashboard";
 import Register from "../screens/Register";
 
 //Icons
-import { MaterialIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -51,11 +51,7 @@ export default function AppRoutes() {
         options={{
           title: "Listagem",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons
-              name="format-list-bulleted"
-              color={color}
-              size={size}
-            />
+            <Feather name="list" color={color} size={size} />
           ),
         }}
       />
@@ -65,7 +61,7 @@ export default function AppRoutes() {
         options={{
           title: "Cadastrar",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="attach-money" color={color} size={size} />
+            <Feather name="dollar-sign" color={color} size={size} />
           ),
         }}
       />
@@ -76,7 +72,7 @@ export default function AppRoutes() {
         options={{
           title: "Resumo",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="pie-chart" color={color} size={size} />
+            <Feather name="pie-chart" color={color} size={size} />
           ),
         }}
       />

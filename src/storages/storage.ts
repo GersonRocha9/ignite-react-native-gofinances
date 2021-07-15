@@ -1,0 +1,6 @@
+const STORAGE_NAME = "@gofinances";
+
+const COLLECTION_USERS = `${STORAGE_NAME}:users`;
+const COLLECTION_TRANSACTIONS = `${STORAGE_NAME}:transactions`;
+
+export { COLLECTION_USERS, COLLECTION_TRANSACTIONS };
