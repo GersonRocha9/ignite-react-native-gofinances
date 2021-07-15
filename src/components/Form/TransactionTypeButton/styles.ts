@@ -20,14 +20,10 @@ type ContainerProps = {
   isActive: boolean;
 };
 
-export const Container = styled(RectButton)<ContainerProps>`
-  flex-direction: row;
-  align-items: center;
+export const Container = styled.View<ContainerProps>`
   justify-content: center;
 
   width: ${RFPercentage(24)}px;
-
-  padding: 16px 35px;
 
   border-width: ${({ isActive }) => (isActive ? 0 : 1.5)}px;
   border-style: solid;
@@ -47,6 +43,14 @@ export const Container = styled(RectButton)<ContainerProps>`
     css`
       background-color: ${theme.colors.attention_light};
     `};
+`;
+
+export const Button = styled(RectButton)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 35px;
 `;
 
 export const Icon = styled(Feather)<IconProps>`
