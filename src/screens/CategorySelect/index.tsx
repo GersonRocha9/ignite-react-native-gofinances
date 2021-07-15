@@ -1,6 +1,9 @@
 //React
 import React from "react";
-import { FlatList } from "react-native-gesture-handler";
+import {
+  FlatList,
+  TouchableWithoutFeedback,
+} from "react-native-gesture-handler";
 
 //Components
 import Header from "../../components/Header";

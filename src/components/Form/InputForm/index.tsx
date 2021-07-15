@@ -9,16 +9,17 @@ import { Control, Controller } from "react-hook-form";
 import Input from "../../Form/Input";
 
 //Styles
-import { Container } from "./styles";
+import { Container, Error } from "./styles";
 
 //Types
 type Props = TextInputProps & {
   control: Control;
   name: string;
+  error: string;
 };
 
 export default function InputForm(props: Props) {
-  const { control, name, ...rest } = props;
+  const { control, name, error, ...rest } = props;
 
   return (
     <Container>
@@ -29,6 +30,7 @@ export default function InputForm(props: Props) {
         )}
         name={name}
       />
+      {error && <Error>{error}</Error>}
     </Container>
   );
 }
