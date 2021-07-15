@@ -43,7 +43,7 @@ export const UserWrapper = styled.View`
 
   width: 100%;
 
-  margin-top: ${getStatusBarHeight() + RFValue(28)}px;
+  margin-top: ${getStatusBarHeight()}px;
   padding: 0 24px;
 `;
 
@@ -91,13 +91,13 @@ export const HighlightCards = styled.ScrollView.attrs({
 
   width: 100%;
 
-  margin-top: ${RFPercentage(20)}px;
+  margin-top: ${RFPercentage(16)}px;
 `;
 
 export const Transactions = styled.View`
   flex: 1;
 
-  margin-top: ${RFPercentage(14)}px;
+  margin-top: ${RFPercentage(10)}px;
   padding: 0 24px;
 `;
 

@@ -1,4 +1,5 @@
 //React
+import "react-native-gesture-handler";
 import React from "react";
 import { StatusBar } from "react-native";
 
@@ -17,8 +18,8 @@ import {
 //Global
 import theme from "./src/global/styles/theme";
 
-//Screens
-import Register from "./src/screens/Register";
+//Routes
+import Routes from "./src/routes";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -34,7 +35,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar backgroundColor="#5636d3" barStyle="light-content" />
-      <Register />
+      <Routes />
     </ThemeProvider>
   );
 }
