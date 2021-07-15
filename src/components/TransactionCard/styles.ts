@@ -8,9 +8,9 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { Feather } from "@expo/vector-icons";
 
 //Types
-type Props = {
+interface Props {
   type: "positive" | "negative";
-};
+}
 
 export const Container = styled.View`
   margin-bottom: 16px;

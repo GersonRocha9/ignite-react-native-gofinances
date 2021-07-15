@@ -13,12 +13,12 @@ import {
 } from "./styles";
 
 //Types
-type Props = {
+interface Props {
   type: "up" | "down" | "total";
   title: string;
   amount: string;
   lastTransaction: string;
-};
+}
 
 export default function HighlightCard(props: Props) {
   const { type, title, amount, lastTransaction } = props;

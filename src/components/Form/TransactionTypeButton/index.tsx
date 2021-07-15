@@ -8,11 +8,11 @@ import { RectButtonProps } from "react-native-gesture-handler";
 import { Container, Button, Icon, Title } from "./styles";
 
 //Types
-type Props = RectButtonProps & {
+interface Props extends RectButtonProps {
   type: "up" | "down";
   title: string;
   isActive: boolean;
-};
+}
 
 export default function TransactionTypeButton(props: Props) {
   const { type, title, isActive, ...rest } = props;

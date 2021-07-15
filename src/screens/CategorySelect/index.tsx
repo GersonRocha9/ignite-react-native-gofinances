@@ -17,16 +17,16 @@ import { categories } from "../../utils/categories";
 import { Container, Category, Icon, Label, Footer } from "./styles";
 
 //Types
-export type CategoryProps = {
+export interface CategoryProps {
   key: string;
   name: string;
-};
+}
 
-type Props = {
+interface Props {
   category: CategoryProps;
   setCategory: (category: CategoryProps) => void;
   closeSelectCategory: () => void;
-};
+}
 
 export default function CategorySelect(props: Props) {
   const { category, setCategory, closeSelectCategory } = props;

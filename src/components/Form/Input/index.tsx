@@ -9,7 +9,7 @@ import { useTheme } from "styled-components";
 import { Container } from "./styles";
 
 //Types
-type Props = TextInputProps;
+interface Props extends TextInputProps {}
 
 export default function Input(props: Props) {
   const { ...rest } = props;

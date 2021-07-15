@@ -5,9 +5,9 @@ import React from "react";
 import { Container, Title } from "./styles";
 
 //Types
-type Props = {
+interface Props {
   title: string;
-};
+}
 
 export default function Header(props: Props) {
   const { title } = props;

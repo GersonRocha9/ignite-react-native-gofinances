@@ -12,11 +12,11 @@ import Input from "../../Form/Input";
 import { Container, Error } from "./styles";
 
 //Types
-type Props = TextInputProps & {
+interface Props extends TextInputProps {
   control: Control;
   name: string;
   error: string;
-};
+}
 
 export default function InputForm(props: Props) {
   const { control, name, error, ...rest } = props;

@@ -11,9 +11,9 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { Feather } from "@expo/vector-icons";
 
 //Types
-type CategoryProps = {
+interface CategoryProps {
   isActive: boolean;
-};
+}
 
 export const Container = styled(GestureHandlerRootView)`
   flex: 1;

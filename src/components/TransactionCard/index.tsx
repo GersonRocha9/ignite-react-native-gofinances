@@ -14,10 +14,10 @@ import {
 } from "./styles";
 
 //Types
-type CategoryProps = {
+interface CategoryProps {
   name: string;
   icon: string;
-};
+}
 
 export type TransactionCardProps = {
   type: "positive" | "negative";

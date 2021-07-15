@@ -8,9 +8,9 @@ import { RectButtonProps } from "react-native-gesture-handler";
 import { Container, Category, Icon } from "./styles";
 
 //Types
-type Props = RectButtonProps & {
+interface Props extends RectButtonProps {
   title: string;
-};
+}
 
 export default function CategorySelectButton(props: Props) {
   const { title, ...rest } = props;

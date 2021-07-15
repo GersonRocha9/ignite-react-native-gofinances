@@ -26,9 +26,9 @@ import {
 //Types
 import { TransactionCardProps } from "../../components/TransactionCard";
 
-export type DataListProps = TransactionCardProps & {
+export interface DataListProps extends TransactionCardProps {
   id: string;
-};
+}
 
 export default function Dashboard() {
   const data: DataListProps[] = [

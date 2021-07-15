@@ -23,10 +23,10 @@ import { Container, Form, Fields, TransactionsTypes } from "./styles";
 //Types
 import { CategoryProps } from "../CategorySelect";
 
-type FormData = {
+interface FormData {
   name: string;
   amount: string;
-};
+}
 
 export default function Register() {
   //Form

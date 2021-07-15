@@ -11,14 +11,14 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Feather } from "@expo/vector-icons";
 
 //Types
-type IconProps = {
+interface IconProps {
   type: "up" | "down";
-};
+}
 
-type ContainerProps = {
+interface ContainerProps {
   type: "up" | "down";
   isActive: boolean;
-};
+}
 
 export const Container = styled.View<ContainerProps>`
   justify-content: center;
