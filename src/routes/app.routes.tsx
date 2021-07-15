@@ -1,27 +1,84 @@
 //React
 import React from "react";
+import { Platform } from "react-native";
 
 //React Navigation
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+//styled-components
+import { useTheme } from "styled-components";
+
+//react-native-responsive-fontsize
+import { RFValue } from "react-native-responsive-fontsize";
 
 //Screens
 import Dashboard from "../screens/Dashboard";
 import Register from "../screens/Register";
 
+//Icons
+import { MaterialIcons } from "@expo/vector-icons";
+
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export default function AppRoutes() {
+  const theme = useTheme();
+
   return (
-    <Navigator>
+    <Navigator
+      tabBarOptions={{
+        activeTintColor: theme.colors.secondary,
+        inactiveTintColor: theme.colors.text,
+
+        labelPosition: "beside-icon",
+
+        style: {
+          height: RFValue(70),
+          paddingVertical: Platform.OS === "ios" ? 20 : 0,
+
+          borderTopWidth: 1,
+          borderTopColor: theme.colors.secondary,
+        },
+
+        labelStyle: {
+          fontFamily: theme.fonts.medium,
+          fontSize: RFValue(14),
+        },
+      }}
+    >
       <Screen
         name="Dashboard"
         component={Dashboard}
-        options={{ title: "Listagem" }}
+        options={{
+          title: "Listagem",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons
+              name="format-list-bulleted"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
       />
       <Screen
         name="Register"
         component={Register}
-        options={{ title: "Cadastrar" }}
+        options={{
+          title: "Cadastrar",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="attach-money" color={color} size={size} />
+          ),
+        }}
+      />
+
+      <Screen
+        name="Resume"
+        component={Register}
+        options={{
+          title: "Resumo",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="pie-chart" color={color} size={size} />
+          ),
+        }}
       />
     </Navigator>
   );
