@@ -74,7 +74,7 @@ export default function Register() {
   });
 
   //Functions
-  function handleTransactionTypeSelect(type: "up" | "down") {
+  function handleTransactionTypeSelect(type: "positive" | "negative") {
     setTransactionType(type);
   }
 
@@ -104,7 +104,7 @@ export default function Register() {
       id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
-      transactionType,
+      type: transactionType,
       category: category.key,
       date: new Date(),
     };
@@ -132,14 +132,6 @@ export default function Register() {
       Alert.alert("Não foi possível salvar.");
     }
   }
-
-  useEffect(() => {
-    async function loadData() {
-      const response = await AsyncStorage.getItem(COLLECTION_TRANSACTIONS);
-      console.log(JSON.parse(response!));
-    }
-    loadData();
-  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -170,15 +162,15 @@ export default function Register() {
               <TransactionTypeButton
                 type="up"
                 title="Income"
-                isActive={transactionType === "up"}
-                onPress={() => handleTransactionTypeSelect("up")}
+                isActive={transactionType === "positive"}
+                onPress={() => handleTransactionTypeSelect("positive")}
               />
 
               <TransactionTypeButton
                 type="down"
                 title="Outcome"
-                isActive={transactionType === "down"}
-                onPress={() => handleTransactionTypeSelect("down")}
+                isActive={transactionType === "negative"}
+                onPress={() => handleTransactionTypeSelect("negative")}
               />
             </TransactionsTypes>
 
