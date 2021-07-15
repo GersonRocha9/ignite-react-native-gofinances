@@ -1,6 +1,9 @@
 //React
 import { FlatList } from "react-native";
 
+//react-native
+import { BorderlessButton } from "react-native-gesture-handler";
+
 //styled-components
 import styled from "styled-components/native";
 
@@ -77,8 +80,10 @@ export const UserName = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
 `;
 
+export const LogoutButton = styled(BorderlessButton)``;
+
 export const Icon = styled(Feather)`
-  font-size: ${RFValue(24) + "px"};
+  font-size: ${RFValue(26) + "px"};
   color: ${({ theme }) => theme.colors.secondary};
 `;
 

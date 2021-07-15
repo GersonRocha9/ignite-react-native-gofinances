@@ -1,5 +1,5 @@
-//React
-import { TouchableOpacity } from "react-native";
+//react-native-gesture-handler
+import { RectButton } from "react-native-gesture-handler";
 
 //styled-components
 import styled from "styled-components/native";
@@ -10,7 +10,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 //Icons
 import { Feather } from "@expo/vector-icons";
 
-export const Container = styled(TouchableOpacity)`
+export const Container = styled(RectButton)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
