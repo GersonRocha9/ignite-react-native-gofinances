@@ -7,9 +7,7 @@ import styled from "styled-components/native";
 //react-native-responsive-fontsize
 import { RFValue } from "react-native-responsive-fontsize";
 
-export const Container = styled(TextInput).attrs(({ theme }) => ({
-  placeholderTextColor: theme.colors.text,
-}))`
+export const Container = styled(TextInput)`
   width: 100%;
 
   margin-bottom: 8px;

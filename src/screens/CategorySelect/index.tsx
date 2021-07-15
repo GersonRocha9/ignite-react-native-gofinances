@@ -14,7 +14,7 @@ import { categories } from "../../utils/categories";
 import { Container, Category, Icon, Label, Footer } from "./styles";
 
 //Types
-type CategoryProps = {
+export type CategoryProps = {
   key: string;
   name: string;
 };
