@@ -14,6 +14,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 //Screens
 import Dashboard from "../screens/Dashboard";
 import Register from "../screens/Register";
+import Resume from "../screens/Resume";
 
 //Icons
 import { Feather } from "@expo/vector-icons";
@@ -68,7 +69,7 @@ export default function AppRoutes() {
 
       <Screen
         name="Resume"
-        component={Register}
+        component={Resume}
         options={{
           title: "Resumo",
           tabBarIcon: ({ color, size }) => (
