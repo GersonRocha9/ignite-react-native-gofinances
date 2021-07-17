@@ -5,6 +5,12 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const History = styled.View`
-  padding: 0 24px;
+export const ChartContainer = styled.View`
+  align-items: center;
+
+  width: 100%;
 `;
+
+export const Content = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false,
+})``;

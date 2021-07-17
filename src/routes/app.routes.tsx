@@ -33,7 +33,7 @@ export default function AppRoutes() {
         labelPosition: "beside-icon",
 
         style: {
-          height: RFValue(70),
+          height: RFValue(55),
           paddingVertical: Platform.OS === "ios" ? 20 : 0,
 
           borderTopWidth: 1,

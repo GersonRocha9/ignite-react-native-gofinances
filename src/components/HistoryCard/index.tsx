@@ -17,7 +17,7 @@ export default function HistoryCard(props: Props) {
   return (
     <Container color={color}>
       <Title>{title}</Title>
-      <Amount>R$ {amount}</Amount>
+      <Amount>{amount}</Amount>
     </Container>
   );
 }
