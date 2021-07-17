@@ -11,7 +11,7 @@ const { Navigator, Screen } = createStackNavigator();
 
 export default function AuthRoutes() {
   return (
-    <Navigator>
+    <Navigator headerMode="none">
       <Screen name="SignIn" component={SignIn} />
     </Navigator>
   );
