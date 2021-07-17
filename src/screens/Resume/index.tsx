@@ -61,11 +61,12 @@ export default function Resume() {
     []
   );
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const theme = useTheme();
 
   async function loadData() {
+    setIsLoading(true);
     const response = await AsyncStorage.getItem(COLLECTION_TRANSACTIONS);
     const responseFormatted = response ? JSON.parse(response) : [];
 
@@ -120,8 +121,6 @@ export default function Resume() {
   }
 
   function handleChangeDate(action: "next" | "prev") {
-    setIsLoading(true);
-
     if (action === "next") {
       setSelectedDate(addMonths(selectedDate, 1));
     } else {
@@ -150,24 +149,24 @@ export default function Resume() {
     <Container>
       <Header title="Resumo por categoria" />
 
+      <MonthSelect>
+        <MonthSelectButton onPress={() => handleChangeDate("prev")}>
+          <MonthSelectIcon name="chevron-left" />
+        </MonthSelectButton>
+
+        <Month>{format(selectedDate, "MMMM, yyyy", { locale: ptBR })}</Month>
+
+        <MonthSelectButton onPress={() => handleChangeDate("next")}>
+          <MonthSelectIcon name="chevron-right" />
+        </MonthSelectButton>
+      </MonthSelect>
+
       <Content
         contentContainerStyle={{
           paddingBottom: useBottomTabBarHeight(),
           paddingHorizontal: 24,
         }}
       >
-        <MonthSelect>
-          <MonthSelectButton onPress={() => handleChangeDate("prev")}>
-            <MonthSelectIcon name="chevron-left" />
-          </MonthSelectButton>
-
-          <Month>{format(selectedDate, "MMMM, yyyy", { locale: ptBR })}</Month>
-
-          <MonthSelectButton onPress={() => handleChangeDate("next")}>
-            <MonthSelectIcon name="chevron-right" />
-          </MonthSelectButton>
-        </MonthSelect>
-
         <ChartContainer>
           <VictoryPie
             data={totalByCategories}

@@ -27,6 +27,7 @@ export const MonthSelect = styled.View`
   width: 100%;
 
   margin-top: 24px;
+  padding: 0 24px;
 `;
 
 export const MonthSelectButton = styled(BorderlessButton)``;
