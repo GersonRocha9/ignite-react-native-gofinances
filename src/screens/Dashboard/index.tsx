@@ -42,7 +42,6 @@ import {
 
 //Types
 import { TransactionCardProps } from "../../components/TransactionCard";
-import { useEffect } from "react";
 
 export interface DataListProps extends TransactionCardProps {
   id: string;
@@ -74,12 +73,16 @@ export default function Dashboard() {
     collection: DataListProps[],
     type: "positive" | "negative"
   ) {
+    const collectionFiltered = collection.filter((item) => item.type === type);
+
+    if (collectionFiltered.length === 0) {
+      return 0;
+    }
+
     const lastTransaction = new Date(
       Math.max.apply(
         Math,
-        collection
-          .filter((item) => item.type === type)
-          .map((item) => new Date(item.date).getTime())
+        collectionFiltered.map((item) => new Date(item.date).getTime())
       )
     );
 
@@ -94,9 +97,9 @@ export default function Dashboard() {
   async function loadTransactions() {
     const dataKey = `${COLLECTION_TRANSACTIONS}:${user.id}`;
 
-    const response = await AsyncStorage.getItem(dataKey);
+    const data = await AsyncStorage.getItem(dataKey);
 
-    const transactions = response ? JSON.parse(response) : [];
+    const transactions = data ? JSON.parse(data) : [];
 
     let entriesTotal = 0;
     let expensivesTotal = 0;
@@ -153,21 +156,28 @@ export default function Dashboard() {
           style: "currency",
           currency: "BRL",
         }),
-        lastTransaction: `Última entrada dia ${lastTransactionEntries}`,
+        lastTransaction:
+          lastTransactionEntries === 0
+            ? "Não há transações"
+            : `Última entrada dia ${lastTransactionEntries}`,
       },
       expensives: {
         amount: expensivesTotal.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         }),
-        lastTransaction: `Última saída dia ${lastTransactionExpensives}`,
+        lastTransaction:
+          lastTransactionExpensives === 0
+            ? "Não há transações"
+            : `Última saída dia ${lastTransactionExpensives}`,
       },
       total: {
         amount: total.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         }),
-        lastTransaction: totalInterval,
+        lastTransaction:
+          lastTransactionExpensives === 0 ? "Não há transações" : totalInterval,
       },
     });
 
