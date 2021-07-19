@@ -3,7 +3,7 @@ import "react-native-gesture-handler";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, LogBox } from "react-native";
 
 //styled-components
 import { ThemeProvider } from "styled-components";
@@ -16,6 +16,9 @@ import {
   Poppins_500Medium,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
+
+//Contexts
+import AuthProvider from "./src/contexts/AuthContext";
 
 //Global
 import theme from "./src/global/styles/theme";
@@ -37,7 +40,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar backgroundColor="#5636d3" barStyle="light-content" />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
