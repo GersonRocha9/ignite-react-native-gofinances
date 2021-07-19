@@ -28,11 +28,23 @@ import AppleSvg from "../../assets/apple.svg";
 import LogoSvg from "../../assets/logo.svg";
 
 export default function SignIn() {
-  const { signInWithGoogle } = useAuth();
+  const { signInWithGoogle, signInWithApple } = useAuth();
 
   async function handleSignInWithGoogle() {
     try {
       await signInWithGoogle();
+    } catch (error) {
+      console.log(error);
+      Alert.alert(
+        "Erro de conexão",
+        "Não foi possível conectar a conta Google."
+      );
+    }
+  }
+
+  async function handleSignInWithApple() {
+    try {
+      await signInWithApple();
     } catch (error) {
       console.log(error);
       Alert.alert(
@@ -67,7 +79,11 @@ export default function SignIn() {
             svg={GoogleSvg}
             onPress={handleSignInWithGoogle}
           />
-          <SignInSocialButton title="Entrar com Apple" svg={AppleSvg} />
+          <SignInSocialButton
+            title="Entrar com Apple"
+            svg={AppleSvg}
+            onPress={handleSignInWithApple}
+          />
         </SignInWrapper>
       </Footer>
     </Container>

@@ -1,14 +1,21 @@
 //React
 import React, { createContext, useState, ReactNode } from "react";
 
+//AsyncStorage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 //AuthSession
 import * as AuthSession from "expo-auth-session";
+import * as AppleAuthentication from "expo-apple-authentication";
 
 //Services
 const { CLIENT_ID } = process.env;
 const { REDIRECT_URI } = process.env;
 const { RESPONSE_TYPE } = process.env;
 const { SCOPE } = process.env;
+
+//Storages
+import { COLLECTION_USER } from "../storages/storage";
 
 //Types
 interface AuthContextProps {
@@ -19,12 +26,13 @@ interface User {
   id: string;
   name: string;
   email: string;
-  photo?: string;
+  photo?: string | undefined;
 }
 
 interface IAuthContextData {
   user: User;
   signInWithGoogle(): Promise<void>;
+  signInWithApple(): Promise<void>;
 }
 
 interface AuthorizationResponse {
@@ -68,8 +76,33 @@ export default function AuthProvider({ children }: AuthContextProps) {
     }
   }
 
+  async function signInWithApple() {
+    try {
+      const credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL,
+        ],
+      });
+
+      if (credential) {
+        const userLogged = {
+          id: String(credential.user),
+          name: credential.fullName!.givenName!,
+          email: credential.email!,
+          photo: undefined,
+        };
+
+        setUser(userLogged);
+        await AsyncStorage.setItem(COLLECTION_USER, JSON.stringify(userLogged));
+      }
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, signInWithApple }}>
       {children}
     </AuthContext.Provider>
   );
