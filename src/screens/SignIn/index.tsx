@@ -1,9 +1,12 @@
 //React
-import React from "react";
-import { Alert } from "react-native";
+import React, { useState } from "react";
+import { Alert, ActivityIndicator, Platform } from "react-native";
 
 //react-native-responsive-fontsize
 import { RFValue } from "react-native-responsive-fontsize";
+
+//styled-components
+import { useTheme } from "styled-components";
 
 //Components
 import SignInSocialButton from "../../components/SignInSocialButton";
@@ -28,11 +31,15 @@ import AppleSvg from "../../assets/apple.svg";
 import LogoSvg from "../../assets/logo.svg";
 
 export default function SignIn() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { signInWithGoogle, signInWithApple } = useAuth();
+
+  const theme = useTheme();
 
   async function handleSignInWithGoogle() {
     try {
-      await signInWithGoogle();
+      setIsLoading(true);
+      return await signInWithGoogle();
     } catch (error) {
       console.log(error);
       Alert.alert(
@@ -40,11 +47,13 @@ export default function SignIn() {
         "Não foi possível conectar a conta Google."
       );
     }
+    setIsLoading(false);
   }
 
   async function handleSignInWithApple() {
     try {
-      await signInWithApple();
+      setIsLoading(true);
+      return await signInWithApple();
     } catch (error) {
       console.log(error);
       Alert.alert(
@@ -52,6 +61,7 @@ export default function SignIn() {
         "Não foi possível conectar a conta Google."
       );
     }
+    setIsLoading(false);
   }
 
   return (
@@ -79,12 +89,25 @@ export default function SignIn() {
             svg={GoogleSvg}
             onPress={handleSignInWithGoogle}
           />
-          <SignInSocialButton
-            title="Entrar com Apple"
-            svg={AppleSvg}
-            onPress={handleSignInWithApple}
-          />
+
+          {Platform.OS === "ios" && (
+            <SignInSocialButton
+              title="Entrar com Apple"
+              svg={AppleSvg}
+              onPress={handleSignInWithApple}
+            />
+          )}
         </SignInWrapper>
+
+        {isLoading && (
+          <ActivityIndicator
+            color={theme.colors.primary}
+            size={30}
+            style={{
+              marginTop: Platform.OS === "ios" ? RFValue(20) : RFValue(60),
+            }}
+          />
+        )}
       </Footer>
     </Container>
   );

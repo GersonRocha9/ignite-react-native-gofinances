@@ -22,6 +22,9 @@ import { useTheme } from "styled-components";
 //react-native-responsive-fontsize
 import { RFValue } from "react-native-responsive-fontsize";
 
+//Hooks
+import { useAuth } from "../../hooks/useAuth";
+
 //Storages
 import { COLLECTION_TRANSACTIONS } from "../../storages/storage";
 
@@ -57,6 +60,8 @@ interface CategoryData {
 }
 
 export default function Resume() {
+  const { user } = useAuth();
+
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
     []
   );
@@ -67,7 +72,8 @@ export default function Resume() {
 
   async function loadData() {
     setIsLoading(true);
-    const response = await AsyncStorage.getItem(COLLECTION_TRANSACTIONS);
+    const dataKey = `${COLLECTION_TRANSACTIONS}:${user.id}`;
+    const response = await AsyncStorage.getItem(dataKey);
     const responseFormatted = response ? JSON.parse(response) : [];
 
     const expensives = responseFormatted.filter(

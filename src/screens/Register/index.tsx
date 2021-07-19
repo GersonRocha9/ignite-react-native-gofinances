@@ -1,5 +1,5 @@
 //React
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 
 //React Navigation
@@ -15,6 +15,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 //uuid
 import uuid from "react-native-uuid";
+
+//Hooks
+import { useAuth } from "../../hooks/useAuth";
 
 //Storages
 import { COLLECTION_TRANSACTIONS } from "../../storages/storage";
@@ -42,6 +45,8 @@ interface FormData {
 
 // --------------------- //
 export default function Register() {
+  const { user } = useAuth();
+
   //Form States
   const [transactionType, setTransactionType] = useState<string>("");
   const [category, setCategory] = useState<CategoryProps>({
@@ -110,7 +115,9 @@ export default function Register() {
     };
 
     try {
-      const data = await AsyncStorage.getItem(COLLECTION_TRANSACTIONS);
+      const dataKey = `${COLLECTION_TRANSACTIONS}:${user.id}`;
+
+      const data = await AsyncStorage.getItem(dataKey);
       const currentData = data ? JSON.parse(data) : [];
       const formattedData = [...currentData, newTransaction];
 

@@ -1,5 +1,5 @@
 //React
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { ActivityIndicator } from "react-native";
 
 //React Navigation
@@ -7,8 +7,12 @@ import { useFocusEffect } from "@react-navigation/native";
 
 //AsyncStorage
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 //styled-components
 import { useTheme } from "styled-components";
+
+//Hooks
+import { useAuth } from "../../hooks/useAuth";
 
 //Storages
 import { COLLECTION_TRANSACTIONS } from "../../storages/storage";
@@ -38,6 +42,7 @@ import {
 
 //Types
 import { TransactionCardProps } from "../../components/TransactionCard";
+import { useEffect } from "react";
 
 export interface DataListProps extends TransactionCardProps {
   id: string;
@@ -55,6 +60,8 @@ interface HighlightData {
 }
 
 export default function Dashboard() {
+  const { user, signOut } = useAuth();
+
   const [transactionsData, setTransactionsData] = useState<DataListProps[]>([]);
   const [highlightData, setHighlightData] = useState<HighlightData>(
     {} as HighlightData
@@ -85,7 +92,9 @@ export default function Dashboard() {
   }
 
   async function loadTransactions() {
-    const response = await AsyncStorage.getItem(COLLECTION_TRANSACTIONS);
+    const dataKey = `${COLLECTION_TRANSACTIONS}:${user.id}`;
+
+    const response = await AsyncStorage.getItem(dataKey);
 
     const transactions = response ? JSON.parse(response) : [];
 
@@ -186,17 +195,17 @@ export default function Dashboard() {
           <UserInfo>
             <Photo
               source={{
-                uri: "https://avatars.githubusercontent.com/u/65872394?v=4",
+                uri: user.photo,
               }}
             />
 
             <User>
               <UserGreeting>Olá,</UserGreeting>
-              <UserName>Henrique</UserName>
+              <UserName>{user.name}</UserName>
             </User>
           </UserInfo>
 
-          <LogoutButton onPress={() => {}}>
+          <LogoutButton onPress={signOut}>
             <Icon name="power" />
           </LogoutButton>
         </UserWrapper>

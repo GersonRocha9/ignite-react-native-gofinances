@@ -3,10 +3,13 @@ import "react-native-gesture-handler";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
 import React from "react";
-import { StatusBar, LogBox } from "react-native";
+import { StatusBar } from "react-native";
 
 //styled-components
 import { ThemeProvider } from "styled-components";
+
+//Hooks
+import { useAuth } from "./src/hooks/useAuth";
 
 //Fonts
 import AppLoading from "expo-app-loading";
@@ -27,13 +30,15 @@ import theme from "./src/global/styles/theme";
 import Routes from "./src/routes";
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
+  const { userStorageLoading } = useAuth();
+
+  const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
     Poppins_700Bold,
   });
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded || userStorageLoading) {
     return <AppLoading />;
   }
 
