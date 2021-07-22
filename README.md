@@ -1,4 +1,6 @@
-<h1 align="center">GoFinances</h1>
+<p align="center">
+  <img src="./src/assets/logo.svg" width="250" />
+</p>
 
 <h1 align="center">
   🚀 Concluído 🚀
