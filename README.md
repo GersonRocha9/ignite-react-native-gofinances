@@ -60,6 +60,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [React Hook Form](https://react-hook-form.com/get-started)
 - [date-fns](https://date-fns.org)
 - [styled-components](https://styled-components.com)
+- [react-native-uuid](https://www.npmjs.com/package/react-native-uuid)
 - [react-native-svg](https://github.com/react-native-svg/react-native-svg)
 - [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer)
 - [react-native-responsive-fontsize](https://www.npmjs.com/package/react-native-responsive-fontsize)
