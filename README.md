@@ -48,6 +48,14 @@ $ expo start
 # O servidor inciará na porta:19002 - acesse http://localhost:19002
 ```
 
+### 📁 Configuração .ENV
+
+```bash
+#adicionado .env.example no projeto, lembrar de adicionar as variáveis de ambiente conforme o exemplo
+
+# VERCEL
+
+```
 ---
 
 ## 🚀 Tecnologias Utilizadas
