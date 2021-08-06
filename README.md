@@ -53,8 +53,11 @@ $ expo start
 ```bash
 #adicionado .env.example no projeto, lembrar de adicionar as variáveis de ambiente conforme o exemplo
 
-# VERCEL
-
+# Google Credentials
+CLIENT_ID=
+REDIRECT_URI=
+RESPONSE_TYPE=
+SCOPE=
 ```
 ---
 
