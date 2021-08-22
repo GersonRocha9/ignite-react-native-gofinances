@@ -18,7 +18,7 @@
 
 ## 📋 Sobre
 
-Aplicativo desenvolvido no Chapter 02 do Ignite (Rocketseat).
+Aplicativo desenvolvido no Chapter 02 do Ignite (Rocketseat) - React Native.
 
 ---
 
