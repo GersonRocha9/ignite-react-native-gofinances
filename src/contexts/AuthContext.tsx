@@ -89,7 +89,7 @@ export default function AuthProvider({ children }: AuthContextProps) {
 
         await AsyncStorage.setItem(COLLECTION_USER, JSON.stringify(userLogged));
       }
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error);
     }
   }
@@ -117,7 +117,7 @@ export default function AuthProvider({ children }: AuthContextProps) {
         setUser(userLogged);
         await AsyncStorage.setItem(COLLECTION_USER, JSON.stringify(userLogged));
       }
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error);
     }
   }
