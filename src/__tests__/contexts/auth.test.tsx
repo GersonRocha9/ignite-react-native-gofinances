@@ -16,7 +16,7 @@ const userTest = {
 jest.mock("@react-native-async-storage/async-storage", () => mockAsyncStorage);
 jest.mock("expo-auth-session", () => ({
   startAsync: () => ({
-    type: "success",
+    type: "success" || "cancel",
     params: { access_token: "test-token" },
   }),
 }));
@@ -31,5 +31,15 @@ describe("Auth Hook", () => {
       await result.current.signInWithGoogle();
     });
     expect(result.current.user.email).toBe(userTest.email);
+  });
+
+  it("user should not connect if cancel authentication with google", async () => {
+    fetchMock.mockResponseOnce(JSON.stringify(userTest));
+
+    const { result } = renderHook(() => useAuth(), { wrapper: AuthProvider });
+
+    await act(async () => result.current.signInWithGoogle());
+
+    expect(result.current.user).not.toHaveProperty("any_id");
   });
 });
