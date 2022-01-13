@@ -6,7 +6,7 @@ import React from "react";
 import { StatusBar } from "react-native";
 
 //styled-components
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components/native";
 
 //Hooks
 import { useAuth } from "./src/hooks/useAuth";
@@ -24,7 +24,7 @@ import {
 import AuthProvider from "./src/contexts/AuthContext";
 
 //Global
-import theme from "./src/global/styles/theme";
+import light from "./src/global/styles/light";
 
 //Routes
 import Routes from "./src/routes";
@@ -43,7 +43,7 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={light}>
       <StatusBar backgroundColor="#5636d3" barStyle="light-content" />
       <AuthProvider>
         <Routes />

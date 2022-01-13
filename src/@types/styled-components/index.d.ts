@@ -2,10 +2,10 @@
 import "styled-components";
 
 //Global
-import theme from "../../global/styles/theme";
+import light from "../../global/styles/light";
 
 declare module "styled-components" {
-  type ThemeType = typeof theme;
+  type ThemeType = typeof light;
 
   export interface DefaultTheme extends ThemeType {}
 }

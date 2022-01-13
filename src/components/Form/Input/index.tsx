@@ -5,6 +5,8 @@ import { TextInputProps } from "react-native";
 //styled-components
 import { useTheme } from "styled-components";
 
+import light from "../../../global/styles/light";
+
 //Styles
 import { Container } from "./styles";
 
